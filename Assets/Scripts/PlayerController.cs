@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;  //gets the input from the players left and right keys
     private float verticalInput;    //gets the input from the players forward and back keys
     private Rigidbody playerRb;     //sets the rigidbody of the player
-    private float speed = 0.75f;
+    private float speed = 500f;
     private float _movementLimit = 9f; 
     public float MovementLimit
     {
@@ -22,16 +22,19 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
+    {
+        horizontalInput = Input.GetAxis("Horizontal");  //detects when player presses left or right key and sets float between -1 and 1 
+        verticalInput = Input.GetAxis("Vertical");      //detects when player presses forward or backward key and sets float between -1 and 1 
+    }
+
+    private void FixedUpdate()
     {
         Movement();
     }
 
     void Movement() //ABSTRACTION //controls player movement input and constraints
     {
-        horizontalInput = Input.GetAxis("Horizontal");  //detects when player presses left or right key and sets float between -1 and 1 
-        verticalInput = Input.GetAxis("Vertical");      //detects when player presses forward or backward key and sets float between -1 and 1 
-
         playerRb.AddRelativeForce(Vector3.forward * speed * verticalInput, ForceMode.Force); //applies a force to move the player forward and backward
         playerRb.AddRelativeForce(Vector3.right * speed * horizontalInput, ForceMode.Force);  //applied a force to move the player left and right
 
