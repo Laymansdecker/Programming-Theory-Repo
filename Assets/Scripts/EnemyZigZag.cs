@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyZigZag : EnemyController  //INHERITANCE
 {
-    [SerializeField] private float spawnPos;
-    [SerializeField] private float targetPos;
-    [SerializeField] private float leftPos;
-    [SerializeField] private float rightPos;
-    [SerializeField] private float moveLimit = 3.0f;
+    [SerializeField] private float spawnPos;            //The initial spawn position   
+    [SerializeField] private float targetPos;           //the variable for the moving enemy to aim for
+    [SerializeField] private float leftPos;             //the leftmost enemy movement boundary
+    [SerializeField] private float rightPos;            //the rightmost enemy movement boundary
+    [SerializeField] private float moveLimit = 3.0f;    //the boundary control for the enemy movement
 
 
 

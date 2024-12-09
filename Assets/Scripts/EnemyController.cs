@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
         MoveDown();
     }
 
-    public virtual void MoveDown()
+    public virtual void MoveDown() //ABSTRACTION //moves the enemy downward
     {
         transform.Translate(Vector3.back * Time.deltaTime * speed); //moves the enemy down the screen
     }

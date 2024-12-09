@@ -248,6 +248,7 @@ MonoBehaviour:
   animalPrefabs:
   - {fileID: 225824018472789052, guid: 93db3fd536cb1e7439102437aaa1ea99, type: 3}
   - {fileID: 225824018472789052, guid: 856254b1867e48e41abe16bbc2cc57dd, type: 3}
+  - {fileID: 225824018472789052, guid: 376031c1b004cd945bf24934cc39ea49, type: 3}
   playerController: {fileID: 0}
 --- !u!4 &698405129
 Transform:
