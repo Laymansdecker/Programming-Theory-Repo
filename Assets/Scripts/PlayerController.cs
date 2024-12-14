@@ -33,8 +33,18 @@ public class PlayerController : MonoBehaviour
         Movement();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            DataManager.Instance.GameOver();
+        }
+    }
+
     void Movement() //ABSTRACTION //controls player movement input and constraints
     {
+      
         playerRb.AddRelativeForce(Vector3.forward * speed * verticalInput, ForceMode.Force); //applies a force to move the player forward and backward
         playerRb.AddRelativeForce(Vector3.right * speed * horizontalInput, ForceMode.Force);  //applied a force to move the player left and right
 
@@ -59,4 +69,8 @@ public class PlayerController : MonoBehaviour
             playerRb.velocity = new Vector3(playerRb.velocity.x, playerRb.velocity.y, 0);
         }
     }
+
+
+
+
 }

@@ -20,7 +20,7 @@ public class EnemyRotate : EnemyController  //INHERITANCE
     {
         x = transform.position.x + Mathf.Cos(angle) * radius;                           //rotates the object along the x-axis
         y = transform.position.y;                                                       //keeps the y position constant
-        z = transform.position.z + Mathf.Sin(angle) * radius - speed * Time.deltaTime;  //rotates the object along the z-axis while moving it down the screen
+        z = transform.position.z - speed * Time.deltaTime;                              //rotates the object along the z-axis while moving it down the screen
         transform.position = new Vector3(x, y, z);                                      //updates the enemy's position
         angle += rotationSpeed * Time.deltaTime;                                        //updates the angle so the object rotates
     }

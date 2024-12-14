@@ -18,10 +18,12 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);    //runs the SpawnRandomAnimal method at the start delay and then again at every SpawnInterval time
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (DataManager.Instance.gameOver == true)
+        {
+            CancelInvoke("SpawnRandomAnimal");
+        }
     }
 
     void SpawnRandomAnimal()
