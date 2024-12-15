@@ -23,6 +23,7 @@ public class DataManager : MonoBehaviour
     {
         if (Instance != null)           //checks to see if there is an instance already present. If there is one already present,
         {
+            LoadGame();
             Destroy(gameObject);        //destroy it when a new one is created
             return;
         }
@@ -30,7 +31,7 @@ public class DataManager : MonoBehaviour
         Instance = this;                //'this' represents the current instance of MainManager. it stores it in Instance.
         DontDestroyOnLoad(gameObject);  //does not destroy when the scene changes
 
-        LoadGame();
+        LoadGame();                     //loads the savadata
     }
 
     [System.Serializable]   //for a variable to be saveable, it must be writeable in a system.serializable section

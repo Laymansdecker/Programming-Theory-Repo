@@ -11,11 +11,14 @@ public class MainUIHandler : MonoBehaviour
     public GameObject playAgainButton;      //a variable to hold the play again button
     public GameObject mainMenuButton;       //a variable to hold the main menu button
 
-    public Timer timer;                     //allowing the reference of the Timer script
+    public Timer Timer;                     //allowing the reference of the Timer script
 
     private void Awake()
     {
-        timer = GameObject.Find("Timer").GetComponent<Timer>(); //sets the Timer script to the timer game object
+        Timer = GameObject.Find("Canvas").GetComponent<Timer>();    //sets the Timer script to the timer game object
+        gameOverText.SetActive(false);                              //turns off the game over text
+        playAgainButton.SetActive(false);                           //turns off the play again button
+        mainMenuButton.SetActive(false);                            //turns off the main menu button
     }
 
     void Update()   // Update is called once per frame
@@ -35,16 +38,14 @@ public class MainUIHandler : MonoBehaviour
 
     public void MainMenu()
     {
+        DataManager.Instance.gameOver = false;          //turn off the game over
         SceneManager.LoadScene(0);                      //loads the main menu
     }
 
     public void PlayAgain()
     {
-        DataManager.Instance.gameOver = false;           //turn off the game over
-        timer.elapsedTime = 0f;                          //reset the timer to 0
-        gameOverText.SetActive(false);                   //reveals the game over text
-        playAgainButton.SetActive(false);                //reveals the play again button
-        mainMenuButton.SetActive(false);                 //reveals the main menu button
+        DataManager.Instance.gameOver = false;          //turn off the game over
+        SceneManager.LoadScene(1);                      //resets the scene to play again
     }
 
 
