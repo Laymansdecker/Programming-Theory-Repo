@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     public PlayerController playerController;
     private float spawnPosY = 0.5f;
     private float startDelay = 0f;
-    private float spawnInterval = 2f;
+    private float spawnInterval = 1.5f;
 
     
     // Start is called before the first frame update

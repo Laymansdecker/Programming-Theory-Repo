@@ -11,11 +11,8 @@ public class MainUIHandler : MonoBehaviour
     public GameObject playAgainButton;      //a variable to hold the play again button
     public GameObject mainMenuButton;       //a variable to hold the main menu button
 
-    public Timer Timer;                     //allowing the reference of the Timer script
-
     private void Awake()
     {
-        Timer = GameObject.Find("Canvas").GetComponent<Timer>();    //sets the Timer script to the timer game object
         gameOverText.SetActive(false);                              //turns off the game over text
         playAgainButton.SetActive(false);                           //turns off the play again button
         mainMenuButton.SetActive(false);                            //turns off the main menu button

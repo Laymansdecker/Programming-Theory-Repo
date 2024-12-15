@@ -7,12 +7,26 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;  //gets the input from the players left and right keys
     private float verticalInput;    //gets the input from the players forward and back keys
     private Rigidbody playerRb;     //sets the rigidbody of the player
-    private float speed = 500f;
-    private float _movementLimit = 9f; 
-    public float MovementLimit
+    private float m_Speed = 500f;   //the speed of the player
+    public float speed              //ENCAPSULATION //makes sure m_speed is positive
     {
-        get { return _movementLimit; }
-    }
+        get { return m_Speed; }     //gets m_speed value when speed is called
+        set                         //if Speed is made below 0, an error message will appear. otherwise, updates the speed value
+        {
+            if (value < 0f)     
+            {
+                Debug.LogError("a negative speed inverts the controls. please revert to a positive number");
+            }
+            else
+            {
+                m_Speed = value;
+            }
+        }
+}
+
+
+    public float MovementLimit = 9f;    // sets the movement constraints within the project
+
 
     
     // Start is called before the first frame update
